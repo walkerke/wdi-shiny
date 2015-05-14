@@ -1,0 +1,19 @@
+
+#controls {
+  background-color: white;
+  padding: 0 20px 20px 20px;
+  opacity: 1;
+  zoom: 0.9;
+  transition: opacity 500ms;
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px;
+}
+
+#controls p {
+  line-height: 1.2rem;
+}
+
+.leaflet-left {
+  right: 5px;
+}
