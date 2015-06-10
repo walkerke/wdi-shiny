@@ -2,6 +2,8 @@ library(maptools)
 library(kwgeo)
 library(WDI)
 library(leaflet)
+library(dygraphs)
+library(xts)
 
 # Set up the data
 
