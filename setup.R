@@ -1,16 +1,36 @@
 library(maptools)
+library(kwgeo)
+library(WDI)
+library(leaflet)
+
+# Set up the data
 
 countries <- readShapePoly("ne_50m_admin_0_countries/ne_50m_admin_0_countries.shp")
 
-quantile_labels <- function(vec, n) {
-  qs <- round(quantile(vec, seq(0, 1, 1/n), na.rm = TRUE), 1)
-  len <- length(qs) - 1
-  qlabs <- c()
-  for (i in 1:len) {
-    j <- i + 1
-    v <- paste0(as.character(qs[i]), "-", as.character(qs[j]))
-    qlabs <- c(qlabs, v)
-  }
-  final_labs <- c(qlabs, "Data unavailable")
-  final_labs
+# Function to grab WDI data and merge to the spatial data frame
+
+merge_to_wdi <- function(indicator, year) {
+  
+  dat <- WDI(country = "all",
+             indicator = indicator,
+             start = year,
+             end = year)
+  
+  
+  dat[[indicator]] <- round(dat[[indicator]], 1)
+  
+  
+  
+  countries2 <- geo_join(countries,
+                          dat,
+                          "iso_a2",
+                          "iso2c")
+  
+  countries2
+  
 }
+
+
+
+
+

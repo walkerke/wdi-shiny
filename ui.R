@@ -19,13 +19,12 @@ shinyUI(
       top = 0, left = 0, width = "100%", height = "100%", 
       leafletOutput("wdi_map", width = "100%", height = "100%")
     ), 
-    fixedPanel(id = "controls", 
+    fixedPanel(id = "controls", draggable = TRUE, 
                top = 10, right = 10, width = 350, height = "auto", 
                h3("World Bank map explorer"), 
                textInput("indicator", label = "World Bank indicator code", 
                          value = "SP.DYN.TFRT.IN"), 
-               sliderInput("year", label = "Year", value = 2012, sep = "", 
-                           min = 1980, max = 2013, step = 1, width = "100%"), 
+               numericInput("year", label = "Year", value = 2012, min = 1980, max = 2013), 
                selectInput("colors", label = "ColorBrewer palette", 
                            choices = color_picker, 
                            selected = "Blues")
