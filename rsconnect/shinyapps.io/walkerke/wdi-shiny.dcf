@@ -1,0 +1,8 @@
+name: wdi-shiny
+account: walkerke
+server: shinyapps.io
+bundleId: 201129
+url: https://walkerke.shinyapps.io/wdi-shiny
+when: 1433991839.87243
+asMultiple: FALSE
+asStatic: FALSE

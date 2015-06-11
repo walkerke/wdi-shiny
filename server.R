@@ -31,7 +31,7 @@ shinyServer(function(input, output, session) {
     map <- leaflet() %>%
       addTiles(urlTemplate = stamen_tiles,
                attribution = stamen_attribution) %>%
-      setView(0, 0, 2)
+      setView(0, 20, 3)
     
     
     map
@@ -107,7 +107,8 @@ shinyServer(function(input, output, session) {
     
     xtdata$date <- NULL
     
-    dygraph(xtdata) 
+    dygraph(xtdata) %>%
+      dyOptions(colors = c("black", "black"))
     
     })
   
