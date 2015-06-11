@@ -45,7 +45,7 @@ shinyServer(function(input, output, session) {
     
     classes <- 6
     
-    indicator_alias <- "Value"
+    indicator_alias <- lookup_list[[input$indicator]][1]
     
     pal <- colorQuantile(input$colors, NULL, n = classes)
     
@@ -74,7 +74,8 @@ shinyServer(function(input, output, session) {
       addLegend(colors = c(RColorBrewer::brewer.pal(classes, input$colors), "#808080"),
                 position = "bottomright",
                 bins = classes,
-                labels = labs)
+                labels = labs, 
+                title = paste0(indicator_alias, ', ', as.character(input$year)))
     
     
   })

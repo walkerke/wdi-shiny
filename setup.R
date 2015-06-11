@@ -2,6 +2,7 @@ library(maptools)
 library(kwgeo)
 library(WDI)
 library(leaflet)
+library(readxl)
 
 
 # Set up the data
@@ -32,6 +33,16 @@ merge_to_wdi <- function(indicator, year) {
 }
 
 
+# Generate a lookup table
 
+xl <- "WDI_April2013_CETS.xls"
+
+lookup <- read_excel(xl)
+
+names(lookup) <- c("a", "b", "c", "d", "e", "f")
+
+lookup_list <- setNames(as.list(lookup$b), lookup$a)
+
+lookup_list2 <- setNames(as.list(lookup$a), lookup$b)
 
 
